@@ -10,7 +10,7 @@ import re
 def process_date(value):
     return re.sub(r'Published:', r'', value)
 
-class BloombergScraperItem(scrapy.Item):
+class MarketwatchScraperItem(scrapy.Item):
     # define the fields for your item here like:
     title = scrapy.Field(
         input_processor=MapCompose(strip_html5_whitespace)
