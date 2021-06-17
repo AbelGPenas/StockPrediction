@@ -7,7 +7,7 @@ import sys
 
 # grab a set proxies
 # ----------------------------
-def get_verify_proxies(url_verify:str):
+def get_verify_proxies(url_verify:str, txt_save_path:str):
     user_agent_list = [
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15',
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0',
@@ -39,7 +39,7 @@ def get_verify_proxies(url_verify:str):
                 continue
             print('{} proxies have been validated'.format(len(proxies)))
 
-    with open('proxies_verified.txt', 'w') as f:
+    with open(txt_save_path, 'w') as f:
         for item in proxies:
             f.write("%s\n" % item)
     f.close()
