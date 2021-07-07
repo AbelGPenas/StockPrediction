@@ -9,8 +9,18 @@
 
 BOT_NAME = 'Marketwatch'
 
-SPIDER_MODULES = ['NewsScraping.spiders']
-NEWSPIDER_MODULE = 'NewsScraping.spiders'
+SPIDER_MODULES = ['bloomberg_scraper.spiders']
+NEWSPIDER_MODULE = 'bloomberg_scraper.spiders'
+
+ITEM_PIPELINES = {'scrapy.pipelines.files.S3FilesStore': 1}
+# FEED_URI = 's3://agp-dummy/input-scrappy/news.json'
+# AWS_ACCESS_KEY_ID = 'AKIA5XGWHB2XTHVCMTMH'
+# AWS_SECRET_ACCESS_KEY = 'ci8A8bA4E5H/Cvi0sWfD8qTuBnXswTml4PbTJnBk'
+#
+# FEED_FORMAT = 'json'
+
+FEED_EXPORT_FIELDS = None
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -59,7 +69,8 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 700
 }
-PROXY_LIST = 'C:/Users/agpen/Documents/Data_Science/DSTI/Python labs/Project/pythonProject2/bloomberg_scraper/bloomberg_scraper/proxies_verified.txt'
+# PROXY_LIST = 'C:/Users/agpen/Documents/Data_Science/DSTI/Python labs/Project/pythonProject2/bloomberg_scraper/bloomberg_scraper/proxies_verified.txt'
+PROXY_LIST = 's3://agp-dummy/input-scrappy/proxies_verified.txt'
 PROXY_MODE = 0
 
 # Enable or disable extensions
