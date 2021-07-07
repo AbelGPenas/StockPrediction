@@ -10,6 +10,15 @@ class marketwatchSpider(scrapy.Spider):
     start_urls = ['https://www.marketwatch.com/markets?messageNumber=20000&channelId=10ac8992-673b-4dcc-b15d-3a55f1f3d061&position=1.1&partial=true']
     handle_httpstatus_list = [404]
 
+    custom_settings = {
+        'FEED_FORMAT': 'json',
+        'URI SCHEME': 's3',
+        'FEED_URI': 's3://agp-dummy/input-scrappy/news2.json',
+        'AWS_ACCESS_KEY_ID': 'AKIA5XGWHB2XTHVCMTMH',
+        'AWS_SECRET_ACCESS_KEY': 'ci8A8bA4E5H/Cvi0sWfD8qTuBnXswTml4PbTJnBk',
+        'FEED_EXPORT_ENCODING':'UTF'
+        }
+
     def parse(self, response):
         newsURLs = response.xpath('.//h3/a[@class="link"]/@href').extract()
         news_ids = response.xpath('.//div[@class="collection__elements j-scrollElement"]/div/@data-msgid').extract()
