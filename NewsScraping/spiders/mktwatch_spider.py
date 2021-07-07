@@ -14,8 +14,8 @@ class marketwatchSpider(scrapy.Spider):
         'FEED_FORMAT': 'json',
         'URI SCHEME': 's3',
         'FEED_URI': 's3://agp-dummy/input-scrappy/news2.json',
-        'AWS_ACCESS_KEY_ID': 'AKIA5XGWHB2XTHVCMTMH',
-        'AWS_SECRET_ACCESS_KEY': 'ci8A8bA4E5H/Cvi0sWfD8qTuBnXswTml4PbTJnBk',
+        'AWS_ACCESS_KEY_ID': 'access key',
+        'AWS_SECRET_ACCESS_KEY': 'secret access key',
         'FEED_EXPORT_ENCODING':'UTF'
         }
 
